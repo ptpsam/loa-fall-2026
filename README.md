@@ -1,1 +1,3 @@
-# loa-fall-2026
+# SQL Practice
+
+My SQL learning exercises during my leave of absence.
