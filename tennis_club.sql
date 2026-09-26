@@ -109,3 +109,40 @@ SELECT name, COUNT(court_id)
 FROM courts
 INNER JOIN reservations ON reservations.court_id = courts.id
 GROUP BY name;
+
+-- HAVING
+-- Filter groups after GROUP BY 
+
+SELECT name, COUNT(court_id) FROM courts 
+INNER JOIN reservations ON reservations.court_id = courts.id 
+GROUP BY name HAVING COUNT(court_id) > 1; 
+
+-- Count reservations for each user 
+
+SELECT users.name, COUNT(reservations.id) AS reservation_count 
+FROM users 
+LEFT JOIN reservations ON users.id = reservations.user_id 
+GROUP BY users.name; 
+
+-- ORDER BY with an aggregate 
+
+SELECT users.name, COUNT(reservations.id) AS reservation_count FROM users 
+LEFT JOIN reservations ON users.id = reservations.user_id 
+GROUP BY users.name 
+ORDER BY reservation_count DESC; 
+
+-- Transactions 
+-- BEGIN starts a transaction 
+-- COMMIT permanently applies the changes 
+-- ROLLBACK cancels the changes 
+BEGIN; 
+UPDATE users 
+SET email = 'bob.new@example.com' 
+WHERE name = 'Bob'; 
+ROLLBACK; 
+-- Example of committing a change 
+BEGIN; 
+UPDATE users 
+SET email = 'bob.new@example.com' 
+WHERE name = 'Bob'; 
+COMMIT;
