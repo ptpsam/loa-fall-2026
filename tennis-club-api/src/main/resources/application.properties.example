@@ -1,0 +1,8 @@
+spring.application.name=tennis-club-api
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/tennis_club
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_PASSWORD
+
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.show-sql=true
