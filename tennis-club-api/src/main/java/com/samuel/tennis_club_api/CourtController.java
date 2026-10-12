@@ -17,13 +17,8 @@ import org.springframework.http.ResponseEntity;
 public class CourtController {
     private final CourtRepository courtRepository;
 
-    public HelloController(CourtRepository courtRepository) {
+    public CourtController(CourtRepository courtRepository) {
         this.courtRepository = courtRepository;
-    }
-
-    @GetMapping("/hello")
-    public String hello() {
-        return "Hello, Samuel!";
     }
 
     @GetMapping("/courts/{id}") 
